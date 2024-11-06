@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee for You</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5dc;
+      }
+      h1 {
+        font-size: 2em;
+        color: #6b4e16;
+      }
+      .coffee-gif {
+        width: 150px;
+        height: auto;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="greeting"></h1>
+    <img
+      src="https://media.giphy.com/media/snTHvEIFpce76/giphy.gif?cid=790b7611flrfbwvpeg1gckr33ah7eyykz046wjpy6yvfpa6w&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+      alt="Coffee GIF"
+      class="coffee-gif"
+    />
+
+    <script>
+      // Function to get URL parameters
+      function getParameterByName(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+      }
+
+      // Get 'name' parameter from URL
+      const userName = getParameterByName("name");
+
+      // Set the content of h1 with the name
+      const greetingElement = document.getElementById("greeting");
+      if (userName) {
+        greetingElement.innerHTML = `Hi, ${userName}, this coffee is for you`;
+      } else {
+        greetingElement.innerHTML = "This coffee is for you";
+      }
+    </script>
+  </body>
+</html>
